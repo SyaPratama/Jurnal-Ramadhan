@@ -83,25 +83,13 @@
    class="max hidden text-white mt-20 flex-col space-y-2 w-full h-[calc(100vh)]"
  >
  <!-- MENU NAVIGATION -->
-   <a href="/"
-     class="hover:ml-4 w-full text-white hover:text-purple-500 dark:hover:text-blue-500 bg-[#1E293B] dark:bg-gray-700 p-2 pl-8 rounded-full transform ease-in-out duration-300 flex flex-row items-center space-x-3"
-   >
-     <svg
-       xmlns="http://www.w3.org/2000/svg"
-       fill="none"
-       viewBox="0 0 24 24"
-       strokeWidth="1.5"
-       stroke="currentColor"
-       class="w-4 h-4"
-     >
-       <path
-         strokeLinecap="round"
-         strokeLinejoin="round"
-         d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
-       />
-     </svg>
-     <div>Home</div>
-    </a>
+    
+    <a href="/"
+    class="hover:ml-4 w-full text-white hover:text-purple-500 dark:hover:text-blue-500 bg-[#1E293B] dark:bg-gray-700 p-2 pl-8 rounded-full transform ease-in-out duration-300 flex items-center text-sm space-x-3"
+  >
+  <i class="fa-sharp fa-solid fa-house"></i>
+    <div>Home</div>
+   </a>
 
  </div>
  <!-- MINI SIDEBAR-->
@@ -138,8 +126,7 @@
     >
       <ol class="inline-flex items-center space-x-1 md:space-x-3">
         <li class="inline-flex items-center">
-          <a
-            href="#"
+          <div
             class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
           >
             <svg
@@ -153,7 +140,7 @@
               ></path>
             </svg>
             Home
-          </a>
+          </div>
         </li>
         <li>
           <div class="flex items-center">
@@ -170,7 +157,7 @@
               ></path>
             </svg>
             <a
-              href="#"
+              href="/"
               class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white"
               >Journals</a
             >
