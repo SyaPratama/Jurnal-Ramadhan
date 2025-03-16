@@ -34,11 +34,22 @@ class Controller {
 
   async quran(req, h) {
     const ListQuran = await this.JurnalService.getListQuran();
+    console.dir(ListQuran,{ depth: null });
     return h.view("main/ramadhan/quran", {
       title: "Al Qur`An",
       username: "Rasya Putra Pratama",
-      data: ListQuran.data,
+      data: ListQuran,
       currentRoute: req.url.pathname,
+    });
+  }
+
+  async quran_detail(req,h)
+  {
+    const { idSurat } = req.params;
+    const ListQuran = await this.JurnalService.getListQuranSpecific(idSurat);
+    return h.view("main/quran/single", {
+      title: `Al Qur'an Surat - ${ListQuran.nama_latin}`,
+      data: ListQuran,
     });
   }
 

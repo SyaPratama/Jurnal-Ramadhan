@@ -11,19 +11,19 @@
         <div class="relative overflow-hidden">
           <div class="flex flex-wrap w-full">
             <% data.forEach( item => { %>
-            <div class="w-full bg-slate-900 text-gray-400 p-3 flex items-center hover:bg-slate-700 cursor-pointer transition-all duration-500 justify-between border-b border-b-slate-700 py-4">
+            <a href="/quran/surat/<%= item.nomor %>" class="w-full bg-slate-900 text-gray-400 p-3 flex items-center hover:bg-slate-700 cursor-pointer transition-all duration-500 justify-between border-b border-b-slate-700 py-4">
               <div class="flex flex-col">
-                <h1 class="font-bold"><%= item.name_id %></h1>
+                <h1 class="font-bold"><%= item.nama_latin %></h1>
                 <div class="inline-flex gap-2 text-sm">
-                  <span><%= item.revelation_id %></span>
+                  <span><%= item.tempat_turun %></span>
                   <span>|</span>
-                  <span><%= item.number_of_verses %> Ayat</span>
+                  <span><%= item.jumlah_ayat %> Ayat</span>
                 </div>
               </div>
               <div>
-                <span><%= item.name_long %></span>
+                <span><%= item.nama %></span>
               </div>
-            </div>
+            </a>
             <% }); %>
           </div>
         </div>

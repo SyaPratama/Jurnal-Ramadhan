@@ -35,7 +35,13 @@ export class Jurnal {
 
   async getListQuran()
   {
-    const result = await fetch("https://api.myquran.com/v2/quran/surat/semua");
+    const result = await fetch("https://equran.id/api/surat");
+    return result.json();
+  }
+
+  async getListQuranSpecific(surat)
+  {
+    const result = await fetch(`https://equran.id/api/surat/${surat}`);
     return result.json();
   }
 
