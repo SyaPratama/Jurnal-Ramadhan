@@ -34,7 +34,6 @@ class Controller {
 
   async quran(req, h) {
     const ListQuran = await this.JurnalService.getListQuran();
-    console.dir(ListQuran,{ depth: null });
     return h.view("main/ramadhan/quran", {
       title: "Al Qur`An",
       username: "Rasya Putra Pratama",
