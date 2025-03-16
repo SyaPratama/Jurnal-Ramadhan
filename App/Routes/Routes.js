@@ -8,6 +8,16 @@ export const Route = (handler) => [
   },
   {
     method: "GET",
+    path: "/ramadhan",
+    handler: handler.ramadhan,
+  },
+  {
+    method: "GET",
+    path: "/quran",
+    handler: handler.quran,
+  },
+  {
+    method: "GET",
     path: "/login",
     options: {
       auth: {

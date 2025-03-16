@@ -15,9 +15,30 @@ class Controller {
   async dashboard(req, h) {
     const JurnalData = await this.JurnalService.getAll();
     return h.view("main/dashboard/main", {
-      title: "Dashboard Admin",
+      title: "Dashboard",
       username: "Rasya Putra Pratama",
       data: JurnalData.data,
+      currentRoute: req.url.pathname,
+    });
+  }
+
+  async ramadhan(req, h) {
+    const JadwalSholat = await this.JurnalService.getJadwalSholat();
+    return h.view("main/ramadhan/page", {
+      title: "Ramadhan Jurnal",
+      username: "Rasya Putra Pratama",
+      data: JadwalSholat.data,
+      currentRoute: req.url.pathname,
+    });
+  }
+
+  async quran(req, h) {
+    const ListQuran = await this.JurnalService.getListQuran();
+    return h.view("main/ramadhan/quran", {
+      title: "Al Qur`An",
+      username: "Rasya Putra Pratama",
+      data: ListQuran.data,
+      currentRoute: req.url.pathname,
     });
   }
 

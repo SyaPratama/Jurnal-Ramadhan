@@ -25,6 +25,20 @@ export class Jurnal {
     };
   }
 
+  async getJadwalSholat() {
+    const zoneDate = new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Jakarta' }));
+    const currentYear = zoneDate.getFullYear();
+    const currentMonth = zoneDate.getMonth() + 1;
+    const resullt = await fetch(`https://api.myquran.com/v2/sholat/jadwal/1403/${currentYear}/${currentMonth}`);
+    return resullt.json();
+  }
+
+  async getListQuran()
+  {
+    const result = await fetch("https://api.myquran.com/v2/quran/surat/semua");
+    return result.json();
+  }
+
   async getById(id) {
     const result = await this.connection.find("jurnals", id);
     if (result.length > 0) {

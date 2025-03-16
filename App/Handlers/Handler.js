@@ -4,6 +4,8 @@ export class Handler{
         this.Service = Service;
         this.login = this.login.bind(this);
         this.dashboard = this.dashboard.bind(this);
+        this.ramadhan = this.ramadhan.bind(this);
+        this.quran = this.quran.bind(this);
         this.register = this.register.bind(this);
         this.regist_handler = this.regist_handler.bind(this);
         this.login_handler = this.login_handler.bind(this);
@@ -22,6 +24,16 @@ export class Handler{
     async dashboard(req,h)
     {
         return await this.Service.dashboard(req,h);
+    }
+
+    async ramadhan(req,h)
+    {
+        return await this.Service.ramadhan(req,h);
+    }
+
+    async quran(req,h)
+    {
+        return await this.Service.quran(req,h);
     }
 
     async register(req,h)
