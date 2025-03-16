@@ -18,6 +18,11 @@ export const Route = (handler) => [
   },
   {
     method: "GET",
+    path: "/quran/surat/{idSurat}",
+    handler: handler.quran_detail,
+  },
+  {
+    method: "GET",
     path: "/login",
     options: {
       auth: {

@@ -1,0 +1,60 @@
+<body class="body bg-slate-00 dark:bg-slate-900 min-h-[100dvh] flex justify-center">
+    <div class="w-[50%] max-md:w-full min-h-[100vh] h-[100%]">
+        <div>
+            <a href="/quran" class="text-white cursor-pointer fixed lg:left-[26.3%] md:left-[27.5%] sm:left-[4%] top-5 text-[22px]">
+                <i class="fa-solid fa-arrow-left"></i>
+            </a href="/">
+        </div>
+
+        <div class="flex flex-col py-3 px-5  md:py-8 md:px-6">
+            <div class="flex justify-between gap-4 text-center text-lg text-white">
+                <span class="font-bold w-full p-2"><%= (() => {
+                    const text = data.tempat_turun.split('');
+                    const first = text[0].toUpperCase();
+                    const rest = text.slice(1).join('');
+                    return first + rest;
+                })()%></span>
+                <span class="font-bold w-full p-2"><%= data.arti %></span>
+                <span class="font-bold w-full p-2"><%= data.jumlah_ayat %> Ayat</span>
+            </div>
+            <div class="flex flex-col gap-7 pt-2 md:px-6 md:pt-6 md:pb-4">
+                <% data.ayat.forEach(item => { %>
+                <div class="text-white text-2xl border-b-slate-200 border-b py-6 flex flex-col gap-5 w-full">
+                    <div class="inline-flex items-center justify-end gap-4">
+                        <span class="border-2 text-[.8rem] inline-flex items-center justify-center text-center w-6 h-6 border-white rounded-full">
+                            <%= (() => {
+                                function toArabicNumbers(num) {
+                                    return num.toString().replace(/\d/g, d => "٠١٢٣٤٥٦٧٨٩"[d]);
+                                };
+                                return toArabicNumbers(item.nomor);
+                            })() %>
+                        </span>
+                        <span><%= item.ar %></span>
+                    </div>
+                   <div class="flex flex-col gap-2">
+                    <span class="text-left font-serif text-[1.2rem] font-extrabold"><%= item.tr %></span>
+                    <span class="text-left font-serif text-[1.1rem]"><%= item.idn %></span>
+                   </div>
+                </div>
+                <% }); %>
+                <div class="flex gap-4 justify-between">
+                    <% if (data.nomor == 114) { %>
+                    <a href="/quran/surat/1" class="text-md p-2 hover:bg-slate-800 transition-all duration-500 text-white bg-slate-500 rounded-md font-bold">Awal Surah</a>
+                    <% } else if(data.nomor > 1 ) { %>
+                    <a href="/quran/surat/<%= data.nomor + 1 %>" class="text-md p-2 hover:bg-slate-800 transition-all duration-500 text-white bg-slate-500 rounded-md font-bold">Surah Selanjutnya</a>
+                    <% } %>
+
+
+                    <% if (data.nomor <= 114) { %>
+                    <a href="/quran/surat/<%= data.nomor - 1 %>" class="text-md p-2 hover:bg-slate-800 transition-all duration-500 text-white bg-slate-500 rounded-md font-bold">Surah Sebelumnya</a>
+                    <% } else if(data.nomor == 1 ) { %>
+                    <a href="/quran/surat/114" class="text-md p-2 hover:bg-slate-800 transition-all duration-500 text-white bg-slate-500 rounded-md font-bold">Akhir Surah</a>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+
+    <script src="/resource/js/single.min.js" crossorigin="anonymous"></script>
+</body>
