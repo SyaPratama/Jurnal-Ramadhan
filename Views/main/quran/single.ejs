@@ -40,12 +40,12 @@
                 <div class="flex gap-4 justify-between">
                     <% if (data.nomor == 114) { %>
                     <a href="/quran/surat/1" class="text-md p-2 hover:bg-slate-800 transition-all duration-500 text-white bg-slate-500 rounded-md font-bold">Awal Surah</a>
-                    <% } else if(data.nomor > 1 ) { %>
+                    <% } else if(data.nomor <= 114 ) { %>
                     <a href="/quran/surat/<%= data.nomor + 1 %>" class="text-md p-2 hover:bg-slate-800 transition-all duration-500 text-white bg-slate-500 rounded-md font-bold">Surah Selanjutnya</a>
                     <% } %>
 
 
-                    <% if (data.nomor <= 114) { %>
+                    <% if (data.nomor <= 114 && data.nomor != 1) { %>
                     <a href="/quran/surat/<%= data.nomor - 1 %>" class="text-md p-2 hover:bg-slate-800 transition-all duration-500 text-white bg-slate-500 rounded-md font-bold">Surah Sebelumnya</a>
                     <% } else if(data.nomor == 1 ) { %>
                     <a href="/quran/surat/114" class="text-md p-2 hover:bg-slate-800 transition-all duration-500 text-white bg-slate-500 rounded-md font-bold">Akhir Surah</a>
