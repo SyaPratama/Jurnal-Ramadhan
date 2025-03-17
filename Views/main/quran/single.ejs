@@ -1,13 +1,13 @@
-<body class="body bg-slate-00 dark:bg-slate-900 min-h-[100dvh] flex justify-center">
+<body class="body bg-slate-400 dark:bg-slate-900 min-h-[100dvh] flex justify-center">
     <div class="w-[50%] max-md:w-full min-h-[100vh] h-[100%]">
         <div>
-            <a href="/quran" class="text-white cursor-pointer fixed lg:left-[26.3%] md:left-[27.5%] sm:left-[4%] top-5 text-[22px]">
+            <a href="/quran" class="dark:text-white text-slate-900 cursor-pointer fixed lg:left-[26.3%] md:left-[27.5%] sm:left-[4%] top-5 text-[22px]">
                 <i class="fa-solid fa-arrow-left"></i>
             </a href="/">
         </div>
 
         <div class="flex flex-col py-3 px-5  md:py-8 md:px-6">
-            <div class="flex justify-between gap-4 text-center text-lg text-white">
+            <div class="flex justify-between gap-4 text-center text-lg dark:text-white text-slate-900">
                 <span class="font-bold w-full p-2"><%= (() => {
                     const text = data.tempat_turun.split('');
                     const first = text[0].toUpperCase();
@@ -19,16 +19,19 @@
             </div>
             <div class="flex flex-col gap-7 pt-2 md:px-6 md:pt-6 md:pb-4">
                 <% data.ayat.forEach(item => { %>
-                <div class="text-white text-2xl border-b-slate-200 border-b py-6 flex flex-col gap-5 w-full">
+                <div class="text-slate-900 dark:text-white text-2xl border-b-slate-900 dark:border-b-slate-200 border-b py-6 flex flex-col gap-5 w-full">
                     <div class="inline-flex items-center justify-end gap-4">
-                        <span class="border-2 text-[.8rem] inline-flex items-center justify-center text-center w-6 h-6 border-white rounded-full">
+                       <div class="">
+                        <div class="border-2 text-[.8rem] flex text-center items-center justify-center w-5 rounded-full border-slate-900 max-h-5 dark:border-white">
                             <%= (() => {
                                 function toArabicNumbers(num) {
                                     return num.toString().replace(/\d/g, d => "٠١٢٣٤٥٦٧٨٩"[d]);
                                 };
                                 return toArabicNumbers(item.nomor);
-                            })() %>
-                        </span>
+                            })() %>  
+                        </div>
+                       </div>
+                        
                         <span><%= item.ar %></span>
                     </div>
                    <div class="flex flex-col gap-2">
@@ -39,16 +42,16 @@
                 <% }); %>
                 <div class="flex gap-4 justify-between">
                     <% if (data.nomor == 114) { %>
-                    <a href="/quran/surat/1" class="text-md p-2 hover:bg-slate-800 transition-all duration-500 text-white bg-slate-500 rounded-md font-bold">Awal Surah</a>
+                    <a href="/quran/surat/1" class="text-md p-2 hover:bg-slate-800 transition-all duration-500 text-white bg-slate-800 dark:bg-slate-600 rounded-md font-bold">Awal Surah</a>
                     <% } else if(data.nomor <= 114 ) { %>
-                    <a href="/quran/surat/<%= data.nomor + 1 %>" class="text-md p-2 hover:bg-slate-800 transition-all duration-500 text-white bg-slate-500 rounded-md font-bold">Surah Selanjutnya</a>
+                    <a href="/quran/surat/<%= data.nomor + 1 %>" class="text-md p-2 hover:bg-slate-800 transition-all duration-500 text-white bg-slate-800 dark:bg-slate-600 rounded-md font-bold">Surah Selanjutnya</a>
                     <% } %>
 
 
                     <% if (data.nomor <= 114 && data.nomor != 1) { %>
-                    <a href="/quran/surat/<%= data.nomor - 1 %>" class="text-md p-2 hover:bg-slate-800 transition-all duration-500 text-white bg-slate-500 rounded-md font-bold">Surah Sebelumnya</a>
+                    <a href="/quran/surat/<%= data.nomor - 1 %>" class="text-md p-2 hover:bg-slate-800 transition-all duration-500 text-white bg-slate-800 dark:bg-slate-600 rounded-md font-bold">Surah Sebelumnya</a>
                     <% } else if(data.nomor == 1 ) { %>
-                    <a href="/quran/surat/114" class="text-md p-2 hover:bg-slate-800 transition-all duration-500 text-white bg-slate-500 rounded-md font-bold">Akhir Surah</a>
+                    <a href="/quran/surat/114" class="text-md p-2 hover:bg-slate-800 transition-all duration-500 text-white bg-slate-800 dark:bg-slate-600 rounded-md font-bold">Akhir Surah</a>
                     <% } %>
                 </div>
             </div>
